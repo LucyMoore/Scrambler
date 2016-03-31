@@ -13,13 +13,13 @@ Unscramble the words for cool points!
 ## Stretch
 *Scoring
 
-## learning objectives
-#Client
+# learning objectives
+##Client
 * Slush-pages
 * Hyperscript
 * jQuery
 
-#Server
+##Server
 *express
 *express-generator
 *database

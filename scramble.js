@@ -1,8 +1,35 @@
-var
+// var express = require('express');
+// var fs      = require('fs');
+// var request = require('request');
 
-module.exports = scramble function  () {
+// module.exports =
+function scramble (req, res){
 
-var wordArr = []
+// var origWord = JSON.stringify(req.body.xxx)
+var origArr = req.split('')
+var maxLen = origArr.length
+
+var scramArr = req.split('')
+
+// for(var i = 0; i < maxLen; i++){
+//   origArr.indexOf(origArr[i])
+// }
+
+for(var i = 0; i < maxLen; i++){
+  for(var j = 0; j < parseInt(Math.random() * maxLen); j++){
+    var x = origArr[i]
+    origArr[i] = origArr[j]
+    origArr[j] = x
+  // console.log("x:", x, "j:", j, "origArr:", origArr )
+  }
+}
+
+//if scrambled = req, then run again
+var joined = origArr.join('')
+  console.log("scrambled:", joined, req)
+  return origArr.join()
+
+
 
 // receive the original unscrambled word from POSt req from client
 //do the scramble logic
@@ -21,8 +48,5 @@ var wordArr = []
 
 //if they hit help =>>> do what?
 
-
-
-
-
 }
+scramble('treasure')

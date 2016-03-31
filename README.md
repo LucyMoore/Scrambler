@@ -1,6 +1,6 @@
 # Scrambler
 
-##What is scrambler
+##What is Lord-Byrons-Harem-Scrambler
 a fantastic word game, thats not only challenging but very exciting also,
 Unscramble the words for cool points!
 

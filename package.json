@@ -4,6 +4,7 @@
   "description": "Word scrablin' game !",
   "main": "index.js",
   "scripts": {
+    "serve": "nodemon ./bin/www",
     "start": "budo . -d --serve bundle.js --live",
     "build": "browserify . -o bundle.js -g uglifyify",
     "test": "browserify test.js | smokestack | tap-spec",
@@ -25,7 +26,13 @@
   },
   "homepage": "https://github.com/Lord Byron's Harem/Scrambler",
   "dependencies": {
-    "hyperscript": "^1.4.7"
+    "hyperscript": "^1.4.7",
+    "body-parser": "~1.13.2",
+    "debug": "~2.2.0",
+    "express": "~4.13.1",
+    "knex": "^0.10.0",
+    "morgan": "~1.6.1",
+    "sqlite3": "^3.1.2"
   },
   "devDependencies": {
     "browserify": "^10.0.0",
@@ -35,6 +42,6 @@
     "tap-spec": "^4.0.2",
     "tape": "^4.0.0",
     "uglifyify": "^3.0.1",
-    "watchify": "^3.1.0"
+    "watchify": "^3.1.0",
   }
 }

@@ -1,31 +1,30 @@
 function scramble (word){
 var origArr = word.split('')
 var maxLen = origArr.length
-
-  for(var i = 0; i <= maxLen; i++){
-    for(var j = 0; j <= Math.floor(Math.random() * maxLen); j++){
-      var x = origArr[i]
-      origArr[i] = origArr[j]
-      origArr[j] = x
+ for(var i = 0; i <= maxLen; i++){
+      for(var j = 0; j <= Math.floor(Math.random() * maxLen); j++){
+        var x = origArr[i]
+        origArr[i] = origArr[j]
+        origArr[j] = x
+        }
+        var scrambled = origArr.join('')
       }
-      var scrambled = origArr.join('')
-    }
-    // console.log('x', x, 'j', j, 'i', i, 'arr', origArr)
-  var result = check(scrambled, word)
-  // console.log('result:', result, '!!!')
-  return result
-}
-
-function check(scrambled, word){
-  if(scrambled == word || scrambled == undefined){
-    // console.log('words equal', scrambled,'=', word)
-    scramble(scrambled)
-  } else {
-  // console.log('checked:', scrambled)
-  // console.log('answer', scrambled)
-  return scrambled
+      // console.log('x', x, 'j', j, 'i', i, 'arr', origArr)
+    var result = check(scrambled, word)
+    // console.log('result:', result, '!!!')
+    return result
   }
-}
+
+  function check(scrambled, word){
+    if(scrambled == word || scrambled == undefined){
+      // console.log('words equal', scrambled,'=', word)
+      scramble(scrambled)
+    } else {
+    // console.log('checked:', scrambled)
+    // console.log('answer', scrambled)
+    return scrambled
+    }
+  }
 // scramble('treasure')
 
 //receive the original unscrambled word from POST word from client
@@ -40,5 +39,7 @@ function check(scrambled, word){
 //if they match then true
 //if not then false
 //if they hit help =>>> do what?
-
+module.exports = {
+  scramble: scramble
+}
 

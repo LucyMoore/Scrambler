@@ -1,8 +1,9 @@
 var h = require('hyperscript')
 var $ = require('jquery')
 var request = require('superagent')
-var scrambledWord = "test"
-var correctWord = 'test'
+var scramble = require('./scramble.js')
+var scrambledWord = ""
+var correctWord = ""
 
 
 var htmlStr = h('div#main', {},
@@ -59,14 +60,17 @@ $(document).ready(function(){
 
   //requests to server endpoints?
   function easyWord(){
-  // request
-  // .get('v1/easy')
-  // .end(function(err,data){
-  //   scrambledWord =  scramble.js
-  //append scramble to page
-  //   $('#anagram').html('scrambledWord')
-  //
-  // })
+    request
+    .get('http://localhost:3000/v1/easy')
+    .end(function(err,data){
+      console.log(data.body)
+      correctWord = data.body.word
+      scrambledWord = scramble.scramble(data.body.word)
+      // scrambledWord = scramble.js
+      // //append scramble to page
+      $('#anagram').html(scrambledWord)
+
+    })
   }
 
   // //<10

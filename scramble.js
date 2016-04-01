@@ -22,10 +22,11 @@ function check(scrambled, word){
     scramble(scrambled)
   } else {
   // console.log('checked:', scrambled)
+  // console.log('answer', scrambled)
   return scrambled
   }
 }
-// scramble('cat')
+// scramble('treasure')
 
 //receive the original unscrambled word from POST word from client
 //convert word with split() into an array

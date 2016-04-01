@@ -15,18 +15,18 @@ Unscramble the words for cool points!
 
 ## learning objectives
 
-#Client
+# Client
 * Slush-pages
 * Hyperscript
 * jQuery
 
-#Server
+# Server
 * express
 * express-generator
 * database
 * routes
 
-##Who's doing what?
+## Who's doing what?
 * Code scramble: Mel & Suresh
 * Database: Louise & Dan
 * Routes request: Dan & Suresh

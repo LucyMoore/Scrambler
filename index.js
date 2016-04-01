@@ -2,7 +2,7 @@ var h = require('hyperscript')
 var $ = require('jquery')
 var request = require('superagent')
 var scrambledWord = "test"
-var correctWord = ''
+var correctWord = 'test'
 
 
 var htmlStr = h('div#main', {},
@@ -24,65 +24,84 @@ var htmlStr = h('div#main', {},
 
 
 $(document).ready(function(){
-//document.body.appendChild(htmlStr)
-$('body').append($(htmlStr))
+  //document.body.appendChild(htmlStr)
+  $('body').append($(htmlStr))
 
 
-// if user selects 'easy' button
-$('#easy').click(function(){
-  $('#answers').append('easy')
-  easyWord()
-})
+  // if user selects 'easy' button
+  $('#easy').click(function(){
+    $('#answers').html('easy')
+    easyWord()
+  })
 
-// if user selects 'medium' button
-$('#medium').click(function(){
-  $('#answers').append('medium')
-  mediumWord()
-})
+  // if user selects 'medium' button
+  $('#medium').click(function(){
+    $('#answers').html('medium')
+    mediumWord()
+  })
 
-// if user selects 'hard' button
-$('#hard').click(function(){
-  $('#answers').append('hard')
-  hardWord()
-})
-//requests to server endpoints?
-// <6
+  // if user selects 'hard' button
+  $('#hard').click(function(){
+    $('#answers').html('hard')
+    hardWord()
+  })
 
-function easyWord(){
-// request
-// .get('v1/easy')
-// .end(function(err,data){
-//   scrambledWord =  scramble.js
-//append scramble to page
-//   $('#anagram').html('scrambledWord')
-//
-// })
+  //on submit
+  $('#submit').click(function(){
+    checkAnswer()
+  })
 
-}
-// //<10
-// request
-// .get('v1/medium')
-// .end(function(err,data){
-//   //scamble save to var
-//   //save correct to var
-//   //append scramble to page
-// })
-// // >10
-// request
-// .get('v1/hard')
-// .end(function(err,data){
-//   //scamble save to var
-//   //save correct to var
-//   //append scramble to page
-// })
+  $('#title p').click(function(){
+    console.log('clciked')
+    document.location.reload(true);
+  })
 
-function checkAnswer(){
-  var answer = $('#userInput').value
-  if(userInput = correctWord){
-    $('#answers').append('CORRECT!'+ '<button>test</button>')
-  } else{
-    $('#answers').append('WRONG! try again')
+
+  //requests to server endpoints?
+  function easyWord(){
+  // request
+  // .get('v1/easy')
+  // .end(function(err,data){
+  //   scrambledWord =  scramble.js
+  //append scramble to page
+  //   $('#anagram').html('scrambledWord')
+  //
+  // })
   }
-}
-//location.reload()
+
+  // //<10
+  function mediumWord(){
+  // request
+  // .get('v1/medium')
+  // .end(function(err,data){
+  //   //scamble save to var
+  //   //save correct to var
+  //   //append scramble to page
+  // })
+  }
+
+  // >10
+  function hardWord(){
+  // request
+  // .get('v1/hard')
+  // .end(function(err,data){
+  //   //scamble save to var
+  //   //save correct to var
+  //   //append scramble to page
+  // })
+  }
+
+  function checkAnswer(){
+    var answer = $('#userInput').val()
+
+    if(answer === correctWord){
+      $('p').html('CORRECT! do you want to play again?'+ '<button id="yes">yes</button>')
+    } else{
+      $('#title.p').append('WRONG! try again')
+      $('#answers').append(answer + '<br>')
+    }
+  }
+
+
+
 })

@@ -14,16 +14,17 @@ Unscramble the words for cool points!
 *Scoring
 
 # learning objectives
+
 ##Client
 * Slush-pages
 * Hyperscript
 * jQuery
 
 ##Server
-*express
-*express-generator
-*database
-*routes
+* express
+* express-generator
+* database
+* routes
 
 ##Who's doing what?
 * Code scramble: Mel & Suresh

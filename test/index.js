@@ -1,6 +1,8 @@
 var test = require('tape')
+var scramble = require('../scramble')
 
-test('testing Scrambler', function (t) {
-  t.ok(true)
+test('testing randomify', function (t) {
+  var word = scramble('suresh')
+  t.notEqual(word, 'suresh', 'word is always scrambled')
   t.end()
 })

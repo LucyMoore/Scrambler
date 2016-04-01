@@ -1,4 +1,4 @@
-function scramble (word){
+module.exports = function scramble (word){
 var origArr = word.split('')
 var maxLen = origArr.length
 

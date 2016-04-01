@@ -43,7 +43,7 @@ router.get('/hard', function(req, res, next) {
 });
 
 function getRandomEntry(arr){
-  var index = Math.floor(Math.random() * (arr.length+ 1));
+  var index = Math.floor(Math.random() * (arr.length));
   return arr[index]
 }
 

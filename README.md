@@ -11,7 +11,7 @@ Unscramble the words for cool points!
 * basic page styling
 
 ## Stretch
-*Scoring
+* Scoring
 
 ## learning objectives
 

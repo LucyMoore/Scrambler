@@ -53,21 +53,17 @@ $(document).ready(function(){
   })
 
   $('#title p').click(function(){
-    console.log('clciked')
     document.location.reload(true);
   })
 
 
-  //requests to server endpoints?
+  //requests to server endpoints
   function easyWord(){
     request
     .get('http://localhost:3000/v1/easy')
     .end(function(err,data){
-      console.log(data.body)
       correctWord = data.body.word
       scrambledWord = scramble.scramble(data.body.word)
-      // scrambledWord = scramble.js
-      // //append scramble to page
       $('#anagram').html(scrambledWord)
 
     })
@@ -75,24 +71,26 @@ $(document).ready(function(){
 
   // //<10
   function mediumWord(){
-  // request
-  // .get('v1/medium')
-  // .end(function(err,data){
-  //   //scamble save to var
-  //   //save correct to var
-  //   //append scramble to page
-  // })
+   request
+   .get('http://localhost:3000/v1/medium')
+   .end(function(err,data){
+      console.log(data.body)
+      correctWord = data.body.word
+      scrambledWord = scramble.scramble(data.body.word)
+      $('#anagram').html(scrambledWord)
+   })
   }
 
   // >10
   function hardWord(){
-  // request
-  // .get('v1/hard')
-  // .end(function(err,data){
-  //   //scamble save to var
-  //   //save correct to var
-  //   //append scramble to page
-  // })
+  request
+   .get('http://localhost:3000/v1/hard')
+   .end(function(err,data){
+      console.log(data.body)
+      correctWord = data.body.word
+      scrambledWord = scramble.scramble(data.body.word)
+      $('#anagram').html(scrambledWord)
+   })
   }
 
   function checkAnswer(){

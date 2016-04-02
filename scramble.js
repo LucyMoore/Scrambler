@@ -1,4 +1,5 @@
-module.exports = function scramble (word){
+function scramble (word){
+  console.log('in scramble')
 var origArr = word.split('')
 var maxLen = origArr.length
  for(var i = 0; i <= maxLen; i++){
@@ -25,20 +26,7 @@ var maxLen = origArr.length
     return scrambled
     }
   }
-// scramble('treasure')
 
-//receive the original unscrambled word from POST word from client
-//convert word with split() into an array
-//assign a new index to each element in the array
-//join the newly scrambled array into a word string
-// var scrambled = origArr.join('')
-//if scrambled === req, then run loop again
-// POST the scrambled word back to client
-//when the client types in solution receive it as a POST req
-//ignore case when checking if solution === original word
-//if they match then true
-//if not then false
-//if they hit help =>>> do what?
 module.exports = {
   scramble: scramble
 }

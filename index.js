@@ -2,6 +2,7 @@ var h = require('hyperscript')
 var $ = require('jquery')
 var request = require('superagent')
 var scramble = require('./scramble.js')
+var points = require('./points.js')
 var scrambledWord = ""
 var correctWord = ""
 
@@ -12,7 +13,9 @@ var htmlStr = h('div#main', {},
                   h('p', 'Below you will see a jumble of letters, rearrange those letters to make a word', {style: {'color': 'purple', 'font-size': '25px'}}),
                   h('button#easy', 'easy', {}),
                   h('button#medium', 'medium', {}),
-                  h('button#hard', 'hard', {})
+                  h('button#hard', 'hard', {}),
+                  h('div#points', '', {})
+
                 ),
                 h('div#content', {style: {'border': '3px solid #d433e0'}},
                    h('h1#anagram', scrambledWord, {style: {'color': 'red'}} ),
@@ -31,19 +34,19 @@ $(document).ready(function(){
 
   // if user selects 'easy' button
   $('#easy').click(function(){
-    $('#answers').html('easy')
+    $('#answers').html('easy <br>')
     easyWord()
   })
 
   // if user selects 'medium' button
   $('#medium').click(function(){
-    $('#answers').html('medium')
+    $('#answers').html('medium <br>')
     mediumWord()
   })
 
   // if user selects 'hard' button
   $('#hard').click(function(){
-    $('#answers').html('hard')
+    $('#answers').html('hard <br>')
     hardWord()
   })
 
@@ -52,7 +55,7 @@ $(document).ready(function(){
     checkAnswer()
   })
 
-  $('#title p').click(function(){
+  $('#answers').click(function(){
     document.location.reload(true);
   })
 
@@ -65,6 +68,7 @@ $(document).ready(function(){
       correctWord = data.body.word
       scrambledWord = scramble.scramble(data.body.word)
       $('#anagram').html(scrambledWord)
+      score = 5
 
     })
   }
@@ -78,6 +82,7 @@ $(document).ready(function(){
       correctWord = data.body.word
       scrambledWord = scramble.scramble(data.body.word)
       $('#anagram').html(scrambledWord)
+      score = 10
    })
   }
 
@@ -90,6 +95,7 @@ $(document).ready(function(){
       correctWord = data.body.word
       scrambledWord = scramble.scramble(data.body.word)
       $('#anagram').html(scrambledWord)
+      score = 15
    })
   }
 
@@ -97,13 +103,15 @@ $(document).ready(function(){
     var answer = $('#userInput').val()
 
     if(answer === correctWord){
-      $('p').html('CORRECT! do you want to play again?'+ '<button id="yes">yes</button>')
+      $('#answers').html('CORRECT! do you want to play again?'+ '<button id="yes">yes</button>')
+      $('#points').html(points.points(score))
+
     } else{
-      $('#title.p').append('WRONG! try again')
-      $('#answers').append(answer + '<br>')
+      $('#answers').append(answer + ' ')
+      $('#answers').append('- WRONG! try again' + '<br>')
+      $('#points').html(points.points(0))
+
     }
   }
-
-
 
 })

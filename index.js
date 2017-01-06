@@ -59,12 +59,24 @@ $(document).ready(function(){
     document.location.reload(true);
   })
 
+$('input[name=subsub]').click(function(){
+  console.log("hello");
+  enterData()
+})
 
+function enterData(){
+  request
+  .get('http://localhost:3000/v2/local')
+  .end(function(err,data){
+    console.log("done");
+  })
+}
   //requests to server endpoints
   function easyWord(){
     request
     .get('http://localhost:3000/v1/easy')
     .end(function(err,data){
+      console.log(data, "***")
       correctWord = data.body.word
       scrambledWord = scramble.scramble(data.body.word)
       $('#anagram').html(scrambledWord)
